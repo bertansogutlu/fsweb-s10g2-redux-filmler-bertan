@@ -13,16 +13,17 @@ const favReducer = (state = initialState, action) => {
                 title: action.payload.title
             }
             return {
-              ...state,
-              favorites: [...state.favorites, favoriteMovie] 
+                ...state,
+                favorites: [...state.favorites, favoriteMovie]
             }
         case REMOVE_FAVORITE:
             return {
-       
+                ...state,
+                favorites: state.favorites.filter(item => (action.payload !== item.id))
             }
         case TOGGLE_FAVORITES:
             return {
-              
+
             }
         default:
             return state;
