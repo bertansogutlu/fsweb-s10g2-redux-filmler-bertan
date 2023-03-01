@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { deleteMovie } from '../actions/movieActions'
+import { deleteMovie } from '../actions/movieActions';
+import { addFavorite } from '../actions/favoritesActions';
 
 const Movie = (props) => {
   const { id } = useParams();
@@ -12,6 +13,10 @@ const Movie = (props) => {
   function handleDelete() {
     dispatch(deleteMovie(Number(id)));
     push('/movies')
+  }
+
+  function handleAdd() {
+    dispatch(addFavorite(movie));
   }
 
   const movies = useSelector(store => store.movieReducer.movies);
@@ -46,7 +51,7 @@ const Movie = (props) => {
       </div>
       <div className="px-5 py-3 border-t border-zinc-200 flex justify-end gap-2">
         <button type="button" className="myButton bg-red-600 hover:bg-red-500" onClick={handleDelete}>Sil</button>
-        <button className="myButton bg-blue-600 hover:bg-blue-500">Favorilere ekle</button>
+        <button className="myButton bg-blue-600 hover:bg-blue-500" onClick={handleAdd}>Favorilere ekle</button>
       </div>
     </div>
   );

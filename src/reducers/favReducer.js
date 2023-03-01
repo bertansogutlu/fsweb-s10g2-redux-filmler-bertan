@@ -8,8 +8,13 @@ const initialState = {
 const favReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FAVORITE:
+            const favoriteMovie = {
+                id: action.payload.id,
+                title: action.payload.title
+            }
             return {
-              
+              ...state,
+              favorites: [...state.favorites, favoriteMovie] 
             }
         case REMOVE_FAVORITE:
             return {
