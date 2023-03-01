@@ -8,9 +8,9 @@ import './index.css';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers';
+import rootReducer from './reducers';
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

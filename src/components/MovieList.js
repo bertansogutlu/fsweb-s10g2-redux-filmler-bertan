@@ -4,7 +4,7 @@ import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
 const MovieList = (props) => {
-  const movies = useSelector(store => store.movies);
+  const movies = useSelector(store => store.movieReducer.movies);
 
   return (
     <div className="flex-1">
