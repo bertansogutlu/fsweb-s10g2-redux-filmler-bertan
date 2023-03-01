@@ -9,7 +9,6 @@ import { removeFavorite } from '../actions/favoritesActions';
 
 const FavoriteMovieList = (props) => {
   const favorites = useSelector(store => store.favReducer.favorites);
-  const movie = useSelector(store => store.movieReducer.favorites);
   const dispatch = useDispatch();
 
   return (
